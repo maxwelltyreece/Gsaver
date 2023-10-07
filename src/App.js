@@ -12,6 +12,7 @@ import Transactions from './pages/Transactions';
 import Chatbot from './pages/Chatbot';
 import Tips from './pages/Tips';
 import GetInTouch from './pages/GetInTouch';
+import Landing from "./components/Landing"
 
 const App = () => {
   const { setCurrentColor, setCurrentMode, currentMode, activeMenu, currentColor, themeSettings, setThemeSettings } = useStateContext();
@@ -69,7 +70,7 @@ const App = () => {
 
               <Routes>
                 {/* dashboard  */}
-                <Route path="/" element={(<Home />)} />
+                <Route path="/" element={(<Landing />)} />
                 {/* <Route path="/ecommerce" element={(<Ecommerce />)} /> */}
                 <Route path="/home" element={(<Home />)} />
 
