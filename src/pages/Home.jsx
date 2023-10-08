@@ -57,14 +57,21 @@ function SavingsChart () {
 }
 
 function ChatbotWidget() {
+	const {currentColor} = useStateContext
+
 	return (
-	  <Card className="h-full"> {/* Use 'h-full' to make the card full height */}
-		<CardActionArea component={RouterLink} to={"/chatbot"}>
-		  <CardContent className="flex items-center justify-center"> {/* Center content vertically */}
-			<img src={ChatBotIcon} alt="ChatBot Icon" style={{ maxHeight: "100%", maxWidth: "100%" }} /> {/* Add 'maxHeight' and 'maxWidth' to keep image fully visible */}
-		  </CardContent>
-		</CardActionArea>
-	  </Card>
+		<Card className="h-full"> {/* Use 'h-full' to make the card full height */}
+			<CardActionArea component={RouterLink} to={"/chatbot"}>
+				<CardContent className="flex items-center justify-center"> {/* Center content vertically */}
+					<img src={ChatBotIcon} alt="ChatBot Icon" style={{ maxHeight: "100%", maxWidth: "100%" }} /> {/* Add 'maxHeight' and 'maxWidth' to keep image fully visible */}
+				</CardContent>
+			</CardActionArea>
+			<div className="text-center">
+				<Typography style={{ background: currentColor }} >
+					Ask me a question
+				</Typography>
+			</div>
+		</Card>
 	);
 }
 
