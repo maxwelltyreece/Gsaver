@@ -11,7 +11,7 @@ import {
 } from "@chatscope/chat-ui-kit-react"
 import ChatBotAvatar from "./ChatBotAvatar"
 
-const API_KEY = "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"
+const API_KEY = "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"
 // const API_KEY = process.env.API_KEY
 // "Explain things like you would to a 10 year old learning how to code."
 const systemMessage = {
@@ -108,7 +108,7 @@ export default function ChatbotComponent() {
 							className="overflow-y-auto"
 							style={{ scrollBehavior: "smooth" }}
 						>
-							{isTyping && <TypingIndicator content="ChatGPT is typing" />}
+							{isTyping && <TypingIndicator content="Your ChatBot is typing" />}
 							{messages.map((message, i) => (
 								<div
 									key={i}
