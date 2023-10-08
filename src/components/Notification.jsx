@@ -4,6 +4,7 @@ import { MdOutlineCancel } from 'react-icons/md';
 import { Button } from '.';
 import { chatData } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
+import { Link as RouterLink } from "react-router-dom";
 
 const Notification = () => {
   const { currentColor } = useStateContext();
@@ -28,7 +29,7 @@ const Notification = () => {
           </div>
         ))}
         <div className="mt-5">
-          <Button color="white" bgColor={currentColor} text="See all Transactions" borderRadius="10px" width="full" />
+          <Button color="white" bgColor={currentColor} text="See all Transactions" borderRadius="10px" width="full" href="../src/pages/Transactions.jsx" />
         </div>
       </div>
     </div>
