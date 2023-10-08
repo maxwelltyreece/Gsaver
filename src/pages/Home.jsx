@@ -47,7 +47,7 @@ const DropDown = ({ currentMode }) => (
 
 function SavingsChart () {
 	return (
-		<div className=" p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl">
+		<div className=" bg-white dark:bg-secondary-dark-bg rounded-3xl">
 			<ChartsHeader category="Savings" title="" />
 			<div className="w-full">
 				<LineChart height="210px"/>
@@ -66,33 +66,50 @@ function ChatbotWidget() {
 		</CardActionArea>
 	  </Card>
 	);
-  }
-  
-  function NeedHelpWidget() {
-	const { currentColor, currentMode } = useStateContext();
-  
+}
+
+function NeedHelpWidget () {
+	const { currentColor } = useStateContext()
+
 	return (
-	  <Card className="h-full"> {/* Use 'h-full' to make the card full height */}
-		<CardActionArea component={RouterLink} to={"/Contact Us"}>
-		  <Item className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg bg-no-repeat">
-			<div className="text-center">
-			  <div>
-				<Typography className="mb-8 p-3 rounded" style={{ backgroundColor: currentColor }}>
-				  Need help?
-				</Typography>
-			  </div>
-			  <div>
-				<p className="mt-3 text-center p-4">
-				                                    Got questions or need assistance with our student banking app? Our dedicated support team is here to help. Whether it's account features, transactions, or any other banking queries, we're just a message or call away. We're committed to making your student banking experience as smooth as possible.
-				</p>
-			  </div>
-			</div>
-		  </Item>
+		<>
+		<Card>
+			<CardActionArea
+				component={RouterLink}
+				to={"/tips"}
+				>
+				<Item className=' bg-white dark:text-gray-200 dark:bg-secondary-dark-bg bg-no-repeat mb-5'>
+					<div className='text-center'>
+						<div><Typography className='mb-8 p-3 rounded' style={{backgroundColor: currentColor}}>Need help?</Typography></div>
+						<div>
+							<p className='mt-3 text-center p-4'>
+								Saving money as a student may seem daunting, but you're not alone in this journey. Click here to see some useful tips and tricks that might help you save some more!
+							</p>
+						</div>
+					</div>
+				</Item>
+			</CardActionArea>
+		</Card>
+		<Card>
+		<CardActionArea
+			component={RouterLink}
+			to={"/Contact Us"}
+			>
+			<Item className=' bg-white dark:text-gray-200 dark:bg-secondary-dark-bg bg-no-repeat mb-5'>
+				<div className='text-center'>
+					<div><Typography className='mb-8 p-3 rounded' style={{backgroundColor: currentColor}}>Get in Touch</Typography></div>
+					<div>
+						<p className='mt-3 text-center p-4'>
+							Still need help? Don't hesitate to reach out if you need more guidance on managing your finances. We're here to help you make the most of your money
+						</p>
+					</div>
+				</div>
+			</Item>
 		</CardActionArea>
-	  </Card>
+	</Card>
+	</>
 	);
-  }
-  
+}
 
 function TransactionsWidget () {
 	const { currentColor, currentMode } = useStateContext()
@@ -168,7 +185,7 @@ function WidgetLayout () {
 				<Box gridColumn="span 12">
 					<SavingsChart />
 				</Box>
-				<Box gridColumn="span 6" className="">
+				<Box gridColumn="span 6">
 					<ChatbotWidget />
 				</Box>
 				<Box gridColumn="span 6" >
