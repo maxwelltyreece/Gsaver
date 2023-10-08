@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+<<<<<<< HEAD
 import { Box } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
@@ -73,6 +74,39 @@ function Register() {
             </Box>
         </Box>
         </>
+=======
+
+function Register() {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleLogin = () => {
+        // Add your authentication logic here
+        if (username === 'your_username' && password === 'your_password') {
+            alert('Login successful!');
+        } else {
+            alert('Login failed. Please check your credentials.');
+        }
+    };
+
+    return (
+        <div>
+        <h2>Login</h2>
+        <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+        />
+        <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+        />
+            <button onClick={handleLogin}>Login</button>
+        </div>
+>>>>>>> ba0a072 (Register)
     );
 }
 
