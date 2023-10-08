@@ -20,6 +20,7 @@ import PJohn from '../data/PJohn.png'
 import Amazon from '../data/Amazon.png'
 import Coop from '../data/Coop.png'
 import UEats from '../data/UEats.png'
+import TGTG from '../data/tgtg.jpg'
 
 
 
@@ -2071,6 +2072,9 @@ export const transactions = [
 ]
 ;
 
+
+
+
 export const comps = ['Tesco', 'Ubereats', 'Restaurants'];
 
 
@@ -2105,7 +2109,7 @@ export const tips = [{
   "company": "Amazon",
   "imlink": Amazon,
   "tip": null
-}
+},
 ];
 process2("Tesco", function(result) {
   tips[0].tip = result;
@@ -2118,10 +2122,23 @@ process2("Amazon", function(result) {
 });
 
 
+for (let i = 0; i < 19; i++) {
+  if (transactions[i]['description'] == 'Fast Food') {
+    tips.push(
+      {
+        "company": "Too Good to Go",
+        "imlink": TGTG,
+        "tip": "Use Too good to go to save unsold food from being wasted"
+      }
+    )
+    break;
+  }
+}
+
 function process() {
   for (let i = 0; i < comps.length; i++) {
     var xhr = new XMLHttpRequest();
-    var url = "https://europe-west2-green-crowbar-401316.cloudfunctions.net/chatfunc?name=How can i save money on " + comps[i] + " answer in 2 sentences";
+    var url = "https://europe-west2-green-crowbar-401316.cloudfunctions.net/chatfunc?name=How can i save money on " + comps[i];
     xhr.open("GET", url, true);
     if (comps[i] == 'Ubereats' ) {
       var lnk = UEats;
