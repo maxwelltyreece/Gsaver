@@ -11,15 +11,178 @@ import {
 } from "@chatscope/chat-ui-kit-react"
 import ChatBotAvatar from "./ChatBotAvatar"
 
-const API_KEY = "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"
+const API_KEY = "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"
 // const API_KEY = process.env.API_KEY
 // "Explain things like you would to a 10 year old learning how to code."
 const systemMessage = {
 	//  Explain things like you're talking to a software professional with 5 years of experience.
 	role: "system",
 	content:
-		"I am a Finance Professional speaking to College and University Students",
+		"I am a Finance Professional speaking to College and University Students This is the current data i have: ",
 }
+
+const transactions = [
+	{
+		id: 1,
+		date: "31-08-23",
+		company: "Uniqlo",
+		description: "Clothing",
+		amount: "£40",
+		direction: "out",
+	},
+	{
+		id: 2,
+		date: "30-08-23",
+		company: "H&M",
+		description: "Fashion",
+		amount: "£30",
+		direction: "out",
+	},
+	{
+		id: 3,
+		date: "29-08-23",
+		company: "Tesco",
+		description: "Groceries",
+		amount: "£55",
+		direction: "out",
+	},
+	{
+		id: 4,
+		date: "28-08-23",
+		company: "Odeon",
+		description: "Cinema",
+		amount: "£28",
+		direction: "out",
+	},
+	{
+		id: 5,
+		date: "27-08-23",
+		company: "KFC",
+		description: "Fast Food",
+		amount: "£12",
+		direction: "out",
+	},
+	{
+		id: 6,
+		date: "26-08-23",
+		company: "Uber Eats",
+		description: "Food Delivery",
+		amount: "£20",
+		direction: "out",
+	},
+	{
+		id: 7,
+		date: "25-08-23",
+		company: "Papa John's",
+		description: "Pizza",
+		amount: "£18",
+		direction: "out",
+	},
+	{
+		id: 8,
+		date: "24-08-23",
+		company: "Co-Op",
+		description: "Groceries",
+		amount: "£22",
+		direction: "out",
+	},
+	{
+		id: 9,
+		date: "23-08-23",
+		company: "Five Guys",
+		description: "Burgers",
+		amount: "£24",
+		direction: "out",
+	},
+	{
+		id: 10,
+		date: "22-08-23",
+		company: "Amazon",
+		description: "Books",
+		amount: "£45",
+		direction: "out",
+	},
+	{
+		id: 11,
+		date: "21-08-23",
+		company: "Uniqlo",
+		description: "Clothing",
+		amount: "£38",
+		direction: "out",
+	},
+	{
+		id: 12,
+		date: "20-08-23",
+		company: "H&M",
+		description: "Fashion",
+		amount: "£27",
+		direction: "out",
+	},
+	{
+		id: 13,
+		date: "19-08-23",
+		company: "Tesco",
+		description: "Groceries",
+		amount: "£50",
+		direction: "out",
+	},
+	{
+		id: 14,
+		date: "18-08-23",
+		company: "Odeon",
+		description: "Cinema",
+		amount: "£32",
+		direction: "out",
+	},
+	{
+		id: 15,
+		date: "17-08-23",
+		company: "KFC",
+		description: "Fast Food",
+		amount: "£14",
+		direction: "out",
+	},
+	{
+		id: 16,
+		date: "16-08-23",
+		company: "Uber Eats",
+		description: "Food Delivery",
+		amount: "£18",
+		direction: "out",
+	},
+	{
+		id: 17,
+		date: "15-08-23",
+		company: "Papa John's",
+		description: "Pizza",
+		amount: "£16",
+		direction: "out",
+	},
+	{
+		id: 18,
+		date: "14-08-23",
+		company: "Co-Op",
+		description: "Groceries",
+		amount: "£21",
+		direction: "out",
+	},
+	{
+		id: 19,
+		date: "13-08-23",
+		company: "Five Guys",
+		description: "Burgers",
+		amount: "£23",
+		direction: "out",
+	},
+	{
+		id: 20,
+		date: "12-08-23",
+		company: "Amazon",
+		description: "Electronics",
+		amount: "£90",
+		direction: "out",
+	},
+]
 
 export default function ChatbotComponent() {
 	const [messages, setMessages] = useState([
@@ -64,15 +227,22 @@ export default function ChatbotComponent() {
 			return { role: role, content: messageObject.message }
 		})
 
-		// Get the request body set up with the model we plan to use
-		// and the messages which we formatted above. We add a system message in the front to'
-		// determine how we want chatGPT to act.
+		const transactionMessages = transactions.map((transaction) => {
+			return {
+				role: "assistant",
+				content: `Transaction ID: ${transaction.id}\nDate: ${transaction.date}\nCompany: ${transaction.company}\nDescription: ${transaction.description}\nAmount: ${transaction.amount}\nDirection: ${transaction.direction}`,
+			}
+		})
+
+		// Combine user messages and transaction messages
+		const allMessages = [
+			...apiMessages, // The messages from our chat with ChatGPT
+			...transactionMessages, // Transaction messages
+		]
+
 		const apiRequestBody = {
 			model: "gpt-3.5-turbo",
-			messages: [
-				systemMessage, // The system message DEFINES the logic of our chatGPT
-				...apiMessages, // The messages from our chat with ChatGPT
-			],
+			messages: allMessages,
 		}
 
 		await fetch("https://api.openai.com/v1/chat/completions", {
@@ -102,7 +272,7 @@ export default function ChatbotComponent() {
 	return (
 		<div className="App">
 			<div className="relative h-[100vh] w-full">
-				<MainContainer>
+				<MainContainer className="">
 					<ChatContainer>
 						<MessageList
 							className="overflow-y-auto"
