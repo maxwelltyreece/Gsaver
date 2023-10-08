@@ -10,7 +10,7 @@ const Transactions = () => {
   const [text, setText] = useState("");
 
 const onGridChange = (newText) => {
-  setText('Payment to Uniqlo £40, Payment to H&M £30, Payment to Tesco £55');
+  setText('Payment to Uniqlo £40, Payment to H&M £30, Payment to Tesco £55, Payment to Odeon £28');
 };
 
 const speak = () => {
