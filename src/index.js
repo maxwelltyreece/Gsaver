@@ -4,14 +4,10 @@ import "./index.css"
 import App from "./App"
 import reportWebVitals from "./reportWebVitals"
 import { ContextProvider } from "./contexts/ContextProvider"
-import Landing from "./components/Landing"
-import ChatbotComponent from "./components/ChatbotComponent"
 
 ReactDOM.render(
 	<React.StrictMode>
 		<ContextProvider>
-			{/* <ChatbotComponent /> */}
-			{/* <Landing /> */}
 			<App />
 		</ContextProvider>
 	</React.StrictMode>,

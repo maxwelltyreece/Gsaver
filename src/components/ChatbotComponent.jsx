@@ -161,7 +161,7 @@ const systemMessage = {
 	//  Explain things like you're talking to a software professional with 5 years of experience.
 	role: "system",
 	content:
-		"Explain things like you're talking to a software professional with 2 years of experience.",
+		"Explain things like you're talking to a Finance professional with Many years of experience.",
 }
 
 export default function ChatbotComponent() {

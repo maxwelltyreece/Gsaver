@@ -22,6 +22,7 @@ import Coop from '../data/Coop.png'
 import UEats from '../data/UEats.png'
 
 
+
 export const gridOrderImage = (props) => (
   <div>
     <img
@@ -864,6 +865,23 @@ export const ordersGrid = [
     width: '120',
   }
 ];
+export const tipsGrid = [
+  {
+    field: 'company',
+    headerText: 'Company',
+    template: gridOrderImage,
+    //textAlign: 'Center',
+    width: '120',
+  },
+  {
+    field: 'tip',
+    headerText: 'Tip',
+    width: '190',
+    editType: 'dropdownedit',
+    textAlign: 'Center',
+  },
+];
+
 
 export const customersData = [
   {
@@ -1861,6 +1879,14 @@ export const employeesData = [
   },
 ];
 
+export const apis = [
+  {
+    "url": "https://europe-west2-green-crowbar-401316.cloudfunctions.net/chatfunc?name=How can i save money at",
+    "back": "answer in 2 sentences",
+  }
+]
+
+
 export const transactions = [
   {
     "id": 1,
@@ -2044,6 +2070,71 @@ export const transactions = [
   }
 ]
 ;
+
+export const comps = ['Tesco', 'Ubereats', 'Restaurants'];
+
+
+function process2(vall, callback) {
+  var xhr = new XMLHttpRequest();
+  var url = "https://europe-west2-green-crowbar-401316.cloudfunctions.net/chatfunc?name=How can I save money on " + vall + " answer concisely";
+  xhr.open("GET", url, true);
+  xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4) {
+          if (xhr.status == 200) {
+              var responseText = xhr.responseText;
+              callback(responseText);
+          } else {
+              callback("Get a clubcard");
+          }
+      }
+  }
+  xhr.send();
+}
+
+export const tips = [{
+  "company": "Tesco",
+  "imlink": Tesco,
+  "tip": null
+},
+{
+  "company": "UberEats",
+  "imlink": UEats,
+  "tip": null
+}
+];
+process2("Tesco", function(result) {
+  tips[0].tip = result;
+});
+process2("Uber Eats", function(result) {
+  tips[1].tip = result;
+});
+
+
+function process() {
+  for (let i = 0; i < comps.length; i++) {
+    var xhr = new XMLHttpRequest();
+    var url = "https://europe-west2-green-crowbar-401316.cloudfunctions.net/chatfunc?name=How can i save money on " + comps[i] + " answer in 2 sentences";
+    xhr.open("GET", url, true);
+    if (comps[i] == 'Ubereats' ) {
+      var lnk = UEats;
+    }
+    else if (comps[i] == 'Tesco') {
+      var lnk = Tesco;
+    }
+    else if (comps[i] == 'Restaurants') {
+      var lnk = FGuys;
+    }
+    xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      tips.push(
+        {"company": comps[i],
+        "imlink": lnk,
+        "tip": xhr.responseText});
+      // Process the response data here
+    }}
+    xhr.send();
+    }
+}
 
 
 export const scheduleData = [
