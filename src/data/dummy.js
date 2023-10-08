@@ -588,21 +588,25 @@ export const chatData = [
     message: 'Payment to Uniqlo',
     desc: '£40',
     time: '9:08 AM',
+    imlink: Uniqlo
   },
   {
     message: 'Payment to H&M',
     desc: '£30',
     time: '11:56 AM',
+    imlink: HM
   },
   {
     message: 'Payment to Tesco',
     desc: '£55',
     time: '4:39 AM',
+    imlink: Tesco
   },
   {
-    message: 'Jolly completed tasks',
-    desc: 'Assign her new tasks',
+    message: 'Payment to Odeon',
+    desc: '£28',
     time: '1:12 AM',
+    imlink: Odeon
   },
 ];
 
