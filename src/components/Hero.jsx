@@ -34,7 +34,7 @@ export function Hero() {
 					Get started
 				</Button>
 				<Button
-					href=""
+					href="/register"
 					variant="filledTonal"
 					color="secondary"
 				>
