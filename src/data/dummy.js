@@ -21,6 +21,7 @@ import Amazon from '../data/Amazon.png'
 import Coop from '../data/Coop.png'
 import UEats from '../data/UEats.png'
 import TGTG from '../data/tgtg.jpg'
+import Natwest from '../data/Natwest.png'
 
 
 
@@ -584,18 +585,18 @@ export const cartData = [
 
 export const chatData = [
   {
-    message: 'Roman Joined the Team!',
-    desc: 'Congratulate him',
+    message: 'Payment to Uniqlo',
+    desc: '£40',
     time: '9:08 AM',
   },
   {
-    message: 'New message received',
-    desc: 'Salma sent you new message',
+    message: 'Payment to H&M',
+    desc: '£30',
     time: '11:56 AM',
   },
   {
-    message: 'New Payment received',
-    desc: 'Check your earnings',
+    message: 'Payment to Tesco',
+    desc: '£55',
     time: '4:39 AM',
   },
   {
@@ -877,7 +878,7 @@ export const tipsGrid = [
   {
     field: 'tip',
     headerText: 'Tip',
-    width: '190',
+    width: '220',
     editType: 'dropdownedit',
     textAlign: 'Center',
   },
@@ -2110,6 +2111,11 @@ export const tips = [{
   "imlink": Amazon,
   "tip": null
 },
+{
+  "company": "Natwest",
+  "imlink": Natwest,
+  "tip": null
+}
 ];
 process2("Tesco", function(result) {
   tips[0].tip = result;
@@ -2134,6 +2140,44 @@ for (let i = 0; i < 19; i++) {
     break;
   }
 }
+
+
+
+function natwesty(callback) {
+var resto = 0;
+var trav = 0;
+for (let i = 0; i < 19; i++){
+  if (transactions[i]['description'] == 'Fast Food' || transactions[i]['description'] == 'Burgers' || transactions[i]['description'] == 'Pizza'){
+    resto = resto + 1;
+  }
+  else if (transactions[i]['description'] == 'Transport') {
+    trav = trav + 1;
+  }
+}
+var nums = {
+  "Restaurant Visits": resto,
+  "Train trips": trav
+}
+console.log(nums);
+  var xhr2 = new XMLHttpRequest();
+  var url2 = "https://europe-west2-green-crowbar-401316.cloudfunctions.net/stubank?name= " + nums + "answer in 2 sentences max. Format I recommend x student bank account because y reason";
+  xhr2.open("GET", url2, true);
+  xhr2.onreadystatechange = function () {
+      if (xhr2.readyState == 4) {
+          if (xhr2.status == 200) {
+              var responseText = xhr2.responseText;
+              callback(responseText);
+          } else {
+              callback("Get a clubcard");
+          }
+      }
+  }
+  xhr2.send();
+}
+
+natwesty( function(result) {
+  tips[3].tip = result;
+});
 
 function process() {
   for (let i = 0; i < comps.length; i++) {
