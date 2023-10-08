@@ -4,7 +4,7 @@ import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
-import { Home, Stacked, Pyramid, Line, Area, Bar, Pie, Financial, ColorMapping} from './pages';
+import { Home } from './pages';
 import './App.css';
 
 import { useStateContext } from './contexts/ContextProvider';
@@ -13,6 +13,7 @@ import Chatbot from './pages/Chatbot';
 import Tips from './pages/Tips';
 import GetInTouch from './pages/GetInTouch';
 import Landing from "./components/Landing"
+import Register from './components/Register';
 
 const App = () => {
   const { setCurrentColor, setCurrentMode, currentMode, activeMenu, currentColor, themeSettings, setThemeSettings } = useStateContext();
@@ -71,25 +72,14 @@ const App = () => {
               <Routes>
                 {/* dashboard  */}
                 <Route path="/" element={(<Landing />)} />
-                {/* <Route path="/ecommerce" element={(<Ecommerce />)} /> */}
                 <Route path="/home" element={(<Home />)} />
-
-
-                {/* charts  */}
-                <Route path="/line" element={<Line />} />
-                <Route path="/area" element={<Area />} />
-                <Route path="/bar" element={<Bar />} />
-                <Route path="/pie" element={<Pie />} />
-                <Route path="/financial" element={<Financial />} />
-                <Route path="/color-mapping" element={<ColorMapping />} />
-                <Route path="/pyramid" element={<Pyramid />} />
-                <Route path="/stacked" element={<Stacked />} />
 
                 {/* Gsaver */}
                 <Route path="/transactions" element={<Transactions />} />
                 <Route path="/chatbot" element={<Chatbot />} />
                 <Route path="/tips" element={<Tips />} />
                 <Route path="/Contact Us" element={<GetInTouch />} />
+                <Route path="/register" element={<Register />} />
 
               </Routes>
             </div>
