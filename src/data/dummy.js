@@ -2100,6 +2100,11 @@ export const tips = [{
   "company": "UberEats",
   "imlink": UEats,
   "tip": null
+},
+{
+  "company": "Amazon",
+  "imlink": Amazon,
+  "tip": null
 }
 ];
 process2("Tesco", function(result) {
@@ -2107,6 +2112,9 @@ process2("Tesco", function(result) {
 });
 process2("Uber Eats", function(result) {
   tips[1].tip = result;
+});
+process2("Amazon", function(result) {
+  tips[2].tip = result;
 });
 
 
