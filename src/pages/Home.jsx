@@ -114,16 +114,32 @@ const Home = () => {
           
         </div>
 
-        <Paper className='flex grid w-full rounded-3xl bg-gradient-to-r from-purple-500 to-pink-500'  style={{backgroundImage: ChatBotIcon}}>
-          <button
-              type="button"
-              style={{ color: currentColor}}
-              className="text-xl rounded-full  p-3 hover:bg-light-gray block " 
-              
-            >
-            Need Help?
-          </button>
-        </Paper>
+        <div className='flex grid w-full gap-6'>
+          <Paper className='flex rounded-3xl opacity-20 hover:opacity-40'  style={{backgroundColor: currentColor, }}>
+            <button
+                type="button"
+                
+                className="text-xl rounded-full  p-3 hover:bg-light-gray block" 
+                
+              >
+              Need Help?
+            </button>
+          </Paper>
+
+          <Paper className='w-full rounded-3xl opacity-50'  style={{backgroundColor: currentColor, }}>
+            <button
+                type="button"
+                
+                className="text-xl rounded-full  p-3 hover:bg-light-gray block " 
+                
+              >
+              Need Help?
+            </button>
+          </Paper>
+
+        </div>
+
+        
       </div>
     </div>
   );
