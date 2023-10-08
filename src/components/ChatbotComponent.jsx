@@ -11,7 +11,7 @@ import {
 } from "@chatscope/chat-ui-kit-react"
 import ChatBotAvatar from "./ChatBotAvatar"
 
-const API_KEY = "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"
+const API_KEY = "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"
 // const API_KEY = process.env.API_KEY
 // "Explain things like you would to a 10 year old learning how to code."
 const systemMessage = {
@@ -230,7 +230,7 @@ export default function ChatbotComponent() {
 		const transactionMessages = transactions.map((transaction) => {
 			return {
 				role: "assistant",
-				content: `Transaction ID: ${transaction.id}\nDate: ${transaction.date}\nCompany: ${transaction.company}\nDescription: ${transaction.description}\nAmount: ${transaction.amount}\nDirection: ${transaction.direction}`,
+				content: ` ${systemMessage} Transaction ID: ${transaction.id}\nDate: ${transaction.date}\nCompany: ${transaction.company}\nDescription: ${transaction.description}\nAmount: ${transaction.amount}\nDirection: ${transaction.direction}`,
 			}
 		})
 
@@ -271,7 +271,7 @@ export default function ChatbotComponent() {
 
 	return (
 		<div className="App">
-			<div className="relative h-[100vh] w-full">
+			<div className="relative h-[70vh] md:h-[100vh] w-full">
 				<MainContainer className="">
 					<ChatContainer>
 						<MessageList
