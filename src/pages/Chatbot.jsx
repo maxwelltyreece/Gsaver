@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import S1 from "../data/Sprites/sprite1.png";
-import S2 from "../data/Sprites/sprite2.png";
-import S3 from "../data/Sprites/sprite3.png";
-import S4 from "../data/Sprites/sprite4.png";
-import S5 from "../data/Sprites/sprite5.png";
-import S6 from "../data/Sprites/sprite6.png";
+import S1 from "../data/Sprites/sprite1.gif";
+import S2 from "../data/Sprites/sprite2.gif";
+import S3 from "../data/Sprites/sprite3.gif";
+import S4 from "../data/Sprites/sprite4.gif";
+import S5 from "../data/Sprites/sprite5.gif";
+import S6 from "../data/Sprites/sprite6.gif";
 import ChatbotComponent from "../components/ChatbotComponent";
 
 const spriteImages = [S1, S2, S3, S4, S5, S6];
