@@ -13,9 +13,7 @@ import {
 
 import Natwest from "../data/Natwest.png"
 import Santander from "../data/santander.jpg"
-import ChatBotIcon from "../data/ChatBotIcon.png"
 import Typography from "@mui/material/Typography"
-
 import { Button } from "../components"
 import { recentTransactions, dropdownData } from "../data/dummy"
 import { useStateContext } from "../contexts/ContextProvider"
@@ -23,6 +21,7 @@ import { useStateContext } from "../contexts/ContextProvider"
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import { ChartsHeader, LineChart } from '../components';
+import ChatBotIcon from "../data/Sprites/sprite1profile.gif";
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -57,47 +56,43 @@ function SavingsChart () {
 	);
 }
 
-function ChatbotWidget () {
+function ChatbotWidget() {
 	return (
-		<Card
-		className="h-1/2"
-		style={{ backgroundColor: "#514f4f" }}
-		>
-			<CardActionArea
-				component={RouterLink}
-				to={"/chatbot"}
-			>
-				<CardContent className=" flex ">
-					<img src={ChatBotIcon} />
-				</CardContent>
-			</CardActionArea>
-		</Card>
+	  <Card className="h-full"> {/* Use 'h-full' to make the card full height */}
+		<CardActionArea component={RouterLink} to={"/chatbot"}>
+		  <CardContent className="flex items-center justify-center"> {/* Center content vertically */}
+			<img src={ChatBotIcon} alt="ChatBot Icon" style={{ maxHeight: "100%", maxWidth: "100%" }} /> {/* Add 'maxHeight' and 'maxWidth' to keep image fully visible */}
+		  </CardContent>
+		</CardActionArea>
+	  </Card>
 	);
-}
-
-function NeedHelpWidget () {
-	const { currentColor, currentMode } = useStateContext()
-
+  }
+  
+  function NeedHelpWidget() {
+	const { currentColor, currentMode } = useStateContext();
+  
 	return (
-		<Card>
-			<CardActionArea
-				component={RouterLink}
-				to={"/Contact Us"}
-				>
-				<Item className=' bg-white dark:text-gray-200 dark:bg-secondary-dark-bg bg-no-repeat'>
-					<div className='text-center'>
-						<div><Typography className='mb-8 p-3 rounded' style={{backgroundColor: currentColor}}>Need help?</Typography></div>
-						<div>
-							<p className='mt-3 text-center p-4'>
-								Got questions or need assistance with our student banking app? Our dedicated support team is here to help. Whether it's account features, transactions, or any other banking queries, we're just a message or call away. We're committed to making your student banking experience as smooth as possible.
-							</p>
-						</div>
-					</div>
-				</Item>
-			</CardActionArea>
-		</Card>
+	  <Card className="h-full"> {/* Use 'h-full' to make the card full height */}
+		<CardActionArea component={RouterLink} to={"/Contact Us"}>
+		  <Item className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg bg-no-repeat">
+			<div className="text-center">
+			  <div>
+				<Typography className="mb-8 p-3 rounded" style={{ backgroundColor: currentColor }}>
+				  Need help?
+				</Typography>
+			  </div>
+			  <div>
+				<p className="mt-3 text-center p-4">
+				                                    Got questions or need assistance with our student banking app? Our dedicated support team is here to help. Whether it's account features, transactions, or any other banking queries, we're just a message or call away. We're committed to making your student banking experience as smooth as possible.
+				</p>
+			  </div>
+			</div>
+		  </Item>
+		</CardActionArea>
+	  </Card>
 	);
-}
+  }
+  
 
 function TransactionsWidget () {
 	const { currentColor, currentMode } = useStateContext()
