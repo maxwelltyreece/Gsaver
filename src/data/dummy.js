@@ -376,19 +376,19 @@ export const FinancialPrimaryYAxis = {
 
 export const LinePrimaryXAxis = {
   valueType: 'DateTime',
-  labelFormat: 'y',
-  intervalType: 'Years',
+  labelFormat: 'MMM',
+  intervalType: 'Months',
   edgeLabelPlacement: 'Shift',
   majorGridLines: { width: 0 },
   background: 'white',
 };
 
 export const LinePrimaryYAxis = {
-  labelFormat: '{value}%',
+  labelFormat: '£{value}',
   rangePadding: 'None',
-  minimum: 0,
-  maximum: 100,
-  interval: 20,
+  minimum: 2000,
+  maximum: 3300,
+  interval: 100,
   lineStyle: { width: 0 },
   majorTickLines: { width: 0 },
   minorTickLines: { width: 0 },
@@ -588,21 +588,25 @@ export const chatData = [
     message: 'Payment to Uniqlo',
     desc: '£40',
     time: '9:08 AM',
+    imlink: Uniqlo
   },
   {
     message: 'Payment to H&M',
     desc: '£30',
     time: '11:56 AM',
+    imlink: HM
   },
   {
     message: 'Payment to Tesco',
     desc: '£55',
     time: '4:39 AM',
+    imlink: Tesco
   },
   {
-    message: 'Jolly completed tasks',
-    desc: 'Assign her new tasks',
+    message: 'Payment to Odeon',
+    desc: '£28',
     time: '1:12 AM',
+    imlink: Odeon
   },
 ];
 
@@ -2403,33 +2407,19 @@ export const scheduleData = [
 
 export const lineChartData = [
   [
-    { x: new Date(2005, 0, 1), y: 21 },
-    { x: new Date(2006, 0, 1), y: 24 },
-    { x: new Date(2007, 0, 1), y: 36 },
-    { x: new Date(2008, 0, 1), y: 38 },
-    { x: new Date(2009, 0, 1), y: 54 },
-    { x: new Date(2010, 0, 1), y: 57 },
-    { x: new Date(2011, 0, 1), y: 70 },
-  ],
-  [
-    { x: new Date(2005, 0, 1), y: 28 },
-    { x: new Date(2006, 0, 1), y: 44 },
-    { x: new Date(2007, 0, 1), y: 48 },
-    { x: new Date(2008, 0, 1), y: 50 },
-    { x: new Date(2009, 0, 1), y: 66 },
-    { x: new Date(2010, 0, 1), y: 78 },
-    { x: new Date(2011, 0, 1), y: 84 },
-  ],
-
-  [
-    { x: new Date(2005, 0, 1), y: 10 },
-    { x: new Date(2006, 0, 1), y: 20 },
-    { x: new Date(2007, 0, 1), y: 30 },
-    { x: new Date(2008, 0, 1), y: 39 },
-    { x: new Date(2009, 0, 1), y: 50 },
-    { x: new Date(2010, 0, 1), y: 70 },
-    { x: new Date(2011, 0, 1), y: 100 },
-  ],
+    { x: new Date(2023, 9, 8), y: 3078 },
+    { x: new Date(2023, 8, 22), y: 2903 },
+    { x: new Date(2023, 8, 8), y: 2885 },
+    { x: new Date(2023, 7, 22), y: 2767 },
+    { x: new Date(2023, 7, 8), y: 2552 },
+    { x: new Date(2023, 6, 22), y: 2615 },
+    { x: new Date(2023, 6, 8), y: 2538 },
+    { x: new Date(2023, 5, 22), y: 2463 },
+    { x: new Date(2023, 5, 8), y: 2305 },
+    { x: new Date(2023, 4, 22), y: 2307 },
+    { x: new Date(2023, 4, 8), y: 2232 },
+    { x: new Date(2023, 3, 22), y: 2155 }
+  ]
 ];
 export const dropdownData = [
   {
@@ -2457,27 +2447,10 @@ export const lineCustomSeries = [
   { dataSource: lineChartData[0],
     xName: 'x',
     yName: 'y',
-    name: 'Germany',
+    name: '',
     width: '2',
     marker: { visible: true, width: 10, height: 10 },
     type: 'Line' },
-
-  { dataSource: lineChartData[1],
-    xName: 'x',
-    yName: 'y',
-    name: 'England',
-    width: '2',
-    marker: { visible: true, width: 10, height: 10 },
-    type: 'Line' },
-
-  { dataSource: lineChartData[2],
-    xName: 'x',
-    yName: 'y',
-    name: 'India',
-    width: '2',
-    marker: { visible: true, width: 10, height: 10 },
-    type: 'Line' },
-
 ];
 
 export const pieChartData = [

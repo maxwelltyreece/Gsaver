@@ -39,7 +39,7 @@ function ColumnLayout() {
                 <Box gridColumn="span 4">
                     <Item className=' bg-white dark:text-gray-200 dark:bg-secondary-dark-bg bg-no-repeat'>
                         <div className='text-center'>
-                            <div><Typography className='mb-8 p-3 rounded' style={{backgroundColor: currentColor}}>Want to improve your credit?</Typography></div>
+                            <div><Typography className='mb-8 p-3 rounded' style={{backgroundColor: currentColor}}>Need help saving?</Typography></div>
                             <div>
                                 <p className='mt-3 text-center p-4'>
                                 To save money as a student, start with a budget to track your spending. Opt for cost-effective choices like cooking at home and buying used textbooks. Make the most of student discounts and consider opening a savings account, even with small contributions. Setting clear financial goals and practicing discipline will help you build savings and develop lifelong money management skills.
