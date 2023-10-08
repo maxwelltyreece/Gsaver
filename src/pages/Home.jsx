@@ -210,65 +210,63 @@ const Home = () => {
 	return (
 		<>
 		<div className="mt-12">
-			<div className="m-2 md:m-5 mt-24 md:p-5 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg bg-no-repeat bg-cover bg-center rounded-3xl shadow p-3 mb-5 bg-body-tertiary rounded" >
-				<div className="flex flex-wrap lg:flex-nowrap justify-center ">
-					<Card className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-36 rounded-3xl w-full lg:w-80 m-3 bg-no-repeat bg-cover bg-center">
-						<CardActionArea
-							component={RouterLink}
-							to={"/transactions"}
-						>
-							<CardContent className="font-bold flex justify-between items-center ">
-								<div>
-									<p className="font-bold text-gray-400">Natwest</p>
-									<p className="text-2xl">£78.04</p>
-									<p className="text-sm text-gray-400  mt-1">Current Account</p>
-								</div>
-								<Avatar
-									src={Natwest}
-									sx={{ width: 54, height: 54 }}
-								/>
-							</CardContent>
-						</CardActionArea>
-					</Card>
+			<div className="flex flex-wrap lg:flex-nowrap justify-center ">
+				<Card className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-36 rounded-3xl w-full lg:w-80 m-3 bg-no-repeat bg-cover bg-center">
+					<CardActionArea
+						component={RouterLink}
+						to={"/transactions"}
+					>
+						<CardContent className="font-bold flex justify-between items-center ">
+							<div>
+								<p className="font-bold text-gray-400">Natwest</p>
+								<p className="text-2xl">£78.04</p>
+								<p className="text-sm text-gray-400  mt-1">Current Account</p>
+							</div>
+							<Avatar
+								src={Natwest}
+								sx={{ width: 54, height: 54 }}
+							/>
+						</CardContent>
+					</CardActionArea>
+				</Card>
 
-					<Card className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-36 rounded-xl w-full lg:w-80 m-3 bg-no-repeat bg-cover bg-center ">
-						<CardActionArea
-							component={RouterLink}
-							to={"/transactions"}
-						>
-							<CardContent className="font-bold flex justify-between items-center ">
-								<div>
-									<p className="font-bold text-gray-400">Natwest</p>
-									<p className="text-2xl">£3,064.67</p>
-									<p className="text-sm text-gray-400  mt-1">Savings</p>
-								</div>
-								<Avatar
-									src={Natwest}
-									sx={{ width: 54, height: 54 }}
-								/>
-							</CardContent>
-						</CardActionArea>
-					</Card>
+				<Card className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-36 rounded-xl w-full lg:w-80 m-3 bg-no-repeat bg-cover bg-center ">
+					<CardActionArea
+						component={RouterLink}
+						to={"/transactions"}
+					>
+						<CardContent className="font-bold flex justify-between items-center ">
+							<div>
+								<p className="font-bold text-gray-400">Natwest</p>
+								<p className="text-2xl">£3,064.67</p>
+								<p className="text-sm text-gray-400  mt-1">Savings</p>
+							</div>
+							<Avatar
+								src={Natwest}
+								sx={{ width: 54, height: 54 }}
+							/>
+						</CardContent>
+					</CardActionArea>
+				</Card>
 
-					<Card className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-36 rounded-xl w-full lg:w-80 m-3 ">
-						<CardActionArea
-							component={RouterLink}
-							to={"/transactions"}
-						>
-							<CardContent className="font-bold flex justify-between items-center ">
-								<div>
-									<p className="font-bold text-gray-400">Santander</p>
-									<p className="text-2xl">-£64.38</p>
-									<p className="text-sm text-gray-400  mt-1">Student Account</p>
-								</div>
-								<Avatar
-									src={Santander}
-									sx={{ width: 54, height: 54 }}
-								/>
-							</CardContent>
-						</CardActionArea>
-					</Card>
-				</div>
+				<Card className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-36 rounded-xl w-full lg:w-80 m-3 ">
+					<CardActionArea
+						component={RouterLink}
+						to={"/transactions"}
+					>
+						<CardContent className="font-bold flex justify-between items-center ">
+							<div>
+								<p className="font-bold text-gray-400">Santander</p>
+								<p className="text-2xl">-£64.38</p>
+								<p className="text-sm text-gray-400  mt-1">Student Account</p>
+							</div>
+							<Avatar
+								src={Santander}
+								sx={{ width: 54, height: 54 }}
+							/>
+						</CardContent>
+					</CardActionArea>
+				</Card>
 			</div>
 			<div className="m-2 md:m-5 mt-24 md:p-5 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg bg-no-repeat bg-cover bg-center rounded-3xl shadow p-3 mb-5 bg-body-tertiary rounded" >
 				<DashboardLayout />
