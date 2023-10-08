@@ -101,7 +101,7 @@ export default function ChatbotComponent() {
 
 	return (
 		<div className="App">
-			<div className="relative h-[100vh] w-full">
+			<div className="relative h-[80vh] w-[100vh]">
 				<MainContainer>
 					<ChatContainer>
 						<MessageList
