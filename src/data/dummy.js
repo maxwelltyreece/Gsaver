@@ -2071,43 +2071,64 @@ export const transactions = [
 ]
 ;
 
-export const comps = ['Tesco', 'Ubereats', 'Cinema by choosing a student bank account'];
+export const comps = ['Tesco', 'Ubereats', 'Restaurants'];
 
 
-function process2(vall) {
-    var xhr = new XMLHttpRequest();
-    var url = "https://europe-west2-green-crowbar-401316.cloudfunctions.net/chatfunc?name=How can i save money on " + vall + " answer in 2 sentences";
-    xhr.open("GET", url, true);
-    xhr.onreadystatechange = function () {
-    if (xhr.readyState == 4 && xhr.status == 200) {
-      console.log(xhr.responseText);
-      return xhr.responseText;
-      // Process the response data here
-    }
-    else {
-      return "Get a clubcard";
-    }}
-    
-    
-    xhr.send();
-    }
+function process2(vall, callback) {
+  var xhr = new XMLHttpRequest();
+  var url = "https://europe-west2-green-crowbar-401316.cloudfunctions.net/chatfunc?name=How can I save money on " + vall + " answer concisely";
+  xhr.open("GET", url, true);
+  xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4) {
+          if (xhr.status == 200) {
+              var responseText = xhr.responseText;
+              callback(responseText);
+          } else {
+              callback("Get a clubcard");
+          }
+      }
+  }
+  xhr.send();
+}
 
 export const tips = [{
   "company": "Tesco",
   "imlink": Tesco,
-  "tip": process2("Tesco")
-}];
+  "tip": null
+},
+{
+  "company": "UberEats",
+  "imlink": UEats,
+  "tip": null
+}
+];
+process2("Tesco", function(result) {
+  tips[0].tip = result;
+});
+process2("Uber Eats", function(result) {
+  tips[1].tip = result;
+});
+
 
 function process() {
   for (let i = 0; i < comps.length; i++) {
     var xhr = new XMLHttpRequest();
     var url = "https://europe-west2-green-crowbar-401316.cloudfunctions.net/chatfunc?name=How can i save money on " + comps[i] + " answer in 2 sentences";
     xhr.open("GET", url, true);
+    if (comps[i] == 'Ubereats' ) {
+      var lnk = UEats;
+    }
+    else if (comps[i] == 'Tesco') {
+      var lnk = Tesco;
+    }
+    else if (comps[i] == 'Restaurants') {
+      var lnk = FGuys;
+    }
     xhr.onreadystatechange = function () {
     if (xhr.readyState == 4 && xhr.status == 200) {
       tips.push(
         {"company": comps[i],
-        "imlink": Tesco,
+        "imlink": lnk,
         "tip": xhr.responseText});
       // Process the response data here
     }}
@@ -2115,7 +2136,6 @@ function process() {
     }
 }
 
-process();
 
 export const scheduleData = [
   {
