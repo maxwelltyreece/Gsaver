@@ -6,6 +6,15 @@ import { chatData } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 import { Link as RouterLink } from "react-router-dom";
 
+import {
+	Card,
+	CardActionArea,
+	CardContent,
+	Avatar,
+	Paper,
+	CardMedia,
+} from "@mui/material"
+
 const Notification = () => {
   const { currentColor } = useStateContext();
 
@@ -29,7 +38,8 @@ const Notification = () => {
           </div>
         ))}
         <div className="mt-5">
-          <Button color="white" bgColor={currentColor} text="See all Transactions" borderRadius="10px" width="full" href="../src/pages/Transactions.jsx" />
+          
+          <Button color="white" bgColor={currentColor} text="See all Transactions" borderRadius="10px" width="full" href="/transactions" />
         </div>
       </div>
     </div>
