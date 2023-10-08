@@ -52,18 +52,14 @@ const ChatbotPage = () => {
   };
 
   return (
-    <div style={{ textAlign: "center", padding: "20px" }}>
+    <div>
       <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
         <p>Chatbot</p>
       </div>
-      <ChatbotComponent />
       {isSaved ? (
-        <div>
-          <h2>Selected Sprite:</h2>
-          {/* Render nothing when saved */}
-        </div>
+        <ChatbotComponent />
       ) : (
-        <div>
+        <div style={{ textAlign: "center", padding: "20px" }}>
           <div style={spriteContainerStyle}>
             <img
               src={selectedSprite}
