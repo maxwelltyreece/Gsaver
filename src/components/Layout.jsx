@@ -15,7 +15,7 @@ import GetInTouch from "./pages/GetInTouch"
 import Landing from "./components/Landing"
 import Register from "./components/Register"
 
-const App = () => {
+const Layout = () => {
 	const {
 		setCurrentColor,
 		setCurrentMode,
@@ -121,4 +121,4 @@ const App = () => {
 	)
 }
 
-export default App
+export default Layout
