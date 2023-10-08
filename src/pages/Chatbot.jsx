@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
+import S1 from '../data/Sprites/sprite1.png';
+import S2 from '../data/Sprites/sprite2.png';
+import S3 from '../data/Sprites/sprite3.png';
+import S4 from '../data/Sprites/sprite4.png';
+import S5 from '../data/Sprites/sprite5.png';
+import S6 from '../data/Sprites/sprite6.png';
 
-const spriteImages = [
-  '/data/Sprites/sprite1.png',
-  '/data/Sprites/sprite2.png',
-  '/data/Sprites/sprite3.png',
-  '/data/Sprites/sprite4.png',
-  '/data/Sprites/sprite5.png',
-  '/data/Sprites/sprite6.png',
-];
+const spriteImages = [S1, S2, S3, S4, S5, S6];
 
 const ChatbotPage = () => {
   const [currentSpriteIndex, setCurrentSpriteIndex] = useState(0);
@@ -38,7 +37,7 @@ const ChatbotPage = () => {
 
   const spriteImageStyle = {
     width: '100%',
-    height: 'auto',
+    height: '100%',
   };
 
   const buttonStyle = {
