@@ -1,148 +1,3 @@
-// import React, { useState } from "react"
-// import { getStreamingCompletion } from "../api/openaiService"
-
-// const ChatbotComponent = () => {
-// 	const [userPrompt, setUserPrompt] = useState("")
-// 	const [response, setResponse] = useState("")
-
-// 	const handleSendMessage = async () => {
-// 		try {
-// 			const apiResponse = await getStreamingCompletion({ userPrompt })
-// 			setResponse(apiResponse.data.choices[0].message.content)
-// 		} catch (error) {
-// 			console.error("Error sending message:", error)
-// 		}
-// 	}
-
-// 	return (
-// 		<div className="chatbot-container">
-// 			<div className="chatbot-messages">
-// 				{response && <div className="message bot">{response}</div>}
-// 			</div>
-// 			<div className="chatbot-input">
-// 				<input
-// 					type="text"
-// 					value={userPrompt}
-// 					onChange={(e) => setUserPrompt(e.target.value)}
-// 					placeholder="Ask a question..."
-// 				/>
-// 				<button onClick={handleSendMessage}>Send</button>
-// 			</div>
-// 		</div>
-// 	)
-// }
-
-// export default ChatbotComponent
-
-// import React, { useState } from "react"
-// import axios from "axios"
-
-// const ChatbotComponent = () => {
-// 	const [messages, setMessages] = useState([])
-// 	const [userInput, setUserInput] = useState("")
-// 	const [response, setResponse] = useState("")
-
-// 	const handleSendMessage = async () => {
-// 		if (!userInput) {
-// 			return // Prevent sending empty messages
-// 		}
-
-// 		const newMessages = [...messages, { role: "user", content: userInput }]
-// 		setMessages(newMessages)
-// 		setUserInput("") // Clear the input field
-
-// 		try {
-// 			const apiResponse = await axios.post("/api/openai", {
-// 				messages: newMessages,
-// 			})
-// 			setResponse(apiResponse.data.choices[0].message.content)
-// 		} catch (error) {
-// 			console.error("Error sending message:", error)
-// 		}
-// 	}
-
-// 	return (
-// 		<div className="chat-container">
-// 			<div className="chat-messages">
-// 				{messages.map((message, index) => (
-// 					<div
-// 						key={index}
-// 						className={`message ${message.role}`}
-// 					>
-// 						{message.content}
-// 					</div>
-// 				))}
-// 				{response && <div className="message bot">{response}</div>}
-// 			</div>
-// 			<div className="chat-input">
-// 				<input
-// 					type="text"
-// 					value={userInput}
-// 					onChange={(e) => setUserInput(e.target.value)}
-// 					placeholder="Type your message..."
-// 				/>
-// 				<button onClick={handleSendMessage}>Send</button>
-// 			</div>
-// 		</div>
-// 	)
-
-// 	const [text, setText] = useState("")
-
-// 	const [chat, setChat] = useState([])
-
-// 	const sendMessage = async (e) => {
-// 		e.preventDefault()
-
-// 		if (!text) return
-
-// 		setChat([...chat, { text, user: "User" }])
-
-// 		const currentMessages = []
-
-// 		setText("")
-
-// 		const response = await fetch("http://localhost:8002/api/chatbot", {
-// 			method: "POST",
-
-// 			headers: { "Content-Type": "application/json" },
-
-// 			body: JSON.stringify({ text }),
-// 		})
-
-// 		const data = await response.json()
-
-// 		setChat((state) => [...state, { text: data.reply, user: "Chatbot" }])
-// 	}
-
-// 	return (
-// 		<div className="App">
-// 			<h1>OpenAI Chatbot</h1>
-
-// 			<div className="chat-container">
-// 				{chat.map((message, i) => (
-// 					<p key={i}>
-// 						<strong>{message.user}: </strong>
-
-// 						{message.text}
-// 					</p>
-// 				))}
-// 			</div>
-
-// 			<form onSubmit={sendMessage}>
-// 				<input
-// 					type="text"
-// 					value={text}
-// 					onChange={(e) => setText(e.target.value)}
-// 				/>
-
-// 				<button type="submit">Send</button>
-// 			</form>
-// 		</div>
-// 	)
-// }
-
-// export default ChatbotComponent
-
 import { useState } from "react"
 import "../App.css"
 import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css"
@@ -154,14 +9,16 @@ import {
 	MessageInput,
 	TypingIndicator,
 } from "@chatscope/chat-ui-kit-react"
+import ChatBotAvatar from "./ChatBotAvatar"
 
-const API_KEY = "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"
+const API_KEY = "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"
+// const API_KEY = process.env.API_KEY
 // "Explain things like you would to a 10 year old learning how to code."
 const systemMessage = {
 	//  Explain things like you're talking to a software professional with 5 years of experience.
 	role: "system",
 	content:
-		"Explain things like you're talking to a Finance professional with Many years of experience.",
+		"I am a Finance Professional speaking to College and University Students",
 }
 
 export default function ChatbotComponent() {
@@ -199,7 +56,7 @@ export default function ChatbotComponent() {
 
 		let apiMessages = chatMessages.map((messageObject) => {
 			let role = ""
-			if (messageObject.sender === "ChatGPT") {
+			if (messageObject.sender === "ChatBot") {
 				role = "assistant"
 			} else {
 				role = "user"
@@ -235,7 +92,7 @@ export default function ChatbotComponent() {
 					...chatMessages,
 					{
 						message: data.choices[0].message.content,
-						sender: "ChatGPT",
+						sender: "ChatBot",
 					},
 				])
 				setIsTyping(false)
@@ -253,10 +110,18 @@ export default function ChatbotComponent() {
 						>
 							{isTyping && <TypingIndicator content="ChatGPT is typing" />}
 							{messages.map((message, i) => (
-								<Message
+								<div
 									key={i}
-									model={message}
-								/>
+									className="flex items-center mb-4"
+								>
+									{message.sender === "ChatBot" && (
+										<ChatBotAvatar className="mr-2" />
+									)}
+									<Message
+										key={i}
+										model={message}
+									/>
+								</div>
 							))}
 						</MessageList>
 						<MessageInput
