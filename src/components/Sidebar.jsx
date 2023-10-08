@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { SiShopware } from 'react-icons/si';
 import { MdOutlineCancel } from 'react-icons/md';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
@@ -9,7 +8,6 @@ import { Avatar } from '@mui/material';
 import GSaver from '../data/IconTransparent.png'
 
 import { links } from '../data/dummy';
-import icon from "../data/Icon.png"
 import { useStateContext } from '../contexts/ContextProvider';
 //hello
 
