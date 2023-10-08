@@ -5,6 +5,7 @@ import S3 from "../data/Sprites/sprite3.png"
 import S4 from "../data/Sprites/sprite4.png"
 import S5 from "../data/Sprites/sprite5.png"
 import S6 from "../data/Sprites/sprite6.png"
+import ChatbotComponent from "../components/ChatbotComponent"
 
 const spriteImages = [S1, S2, S3, S4, S5, S6]
 
@@ -55,6 +56,7 @@ const ChatbotPage = () => {
 			<div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
 				<p>Chatbot</p>
 			</div>
+			<ChatbotComponent />
 			{isSaved ? (
 				<div>
 					<h2>Selected Sprite:</h2>
