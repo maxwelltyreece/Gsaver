@@ -4,7 +4,7 @@ import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
-import { Home, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from './pages';
+import { Home, Stacked, Pyramid, Line, Area, Bar, Pie, Financial, ColorMapping} from './pages';
 import './App.css';
 
 import { useStateContext } from './contexts/ContextProvider';
@@ -12,6 +12,7 @@ import Transactions from './pages/Transactions';
 import Chatbot from './pages/Chatbot';
 import Tips from './pages/Tips';
 import GetInTouch from './pages/GetInTouch';
+import Landing from "./components/Landing"
 
 const App = () => {
   const { setCurrentColor, setCurrentMode, currentMode, activeMenu, currentColor, themeSettings, setThemeSettings } = useStateContext();
@@ -69,20 +70,10 @@ const App = () => {
 
               <Routes>
                 {/* dashboard  */}
-                <Route path="/" element={(<Home />)} />
+                <Route path="/" element={(<Landing />)} />
                 {/* <Route path="/ecommerce" element={(<Ecommerce />)} /> */}
                 <Route path="/home" element={(<Home />)} />
 
-                {/* pages  */}
-                <Route path="/orders" element={<Orders />} />
-                <Route path="/employees" element={<Employees />} />
-                <Route path="/customers" element={<Customers />} />
-
-                {/* apps  */}
-                <Route path="/kanban" element={<Kanban />} />
-                <Route path="/editor" element={<Editor />} />
-                <Route path="/calendar" element={<Calendar />} />
-                <Route path="/color-picker" element={<ColorPicker />} />
 
                 {/* charts  */}
                 <Route path="/line" element={<Line />} />
