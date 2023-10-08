@@ -17,6 +17,7 @@ const Tips = () => {
         allowSorting
         allowExcelExport
         allowPdfExport
+        allowTextWrap={true}
         contextMenuItems={contextMenuItems}
         editSettings={editing}
       >
