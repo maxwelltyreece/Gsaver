@@ -2,7 +2,7 @@ import React from 'react';
 import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
 import {Link as RouterLink} from 'react-router-dom'
 
-import {Card, CardActionArea, CardContent,Avatar,Paper} from '@mui/material' ;
+import {Card, CardActionArea, CardContent,Avatar,Paper, CardMedia} from '@mui/material' ;
 
 import Natwest from '../data/Natwest.png'
 import Santander from '../data/santander.jpg'
@@ -116,26 +116,19 @@ const Home = () => {
 
         <div className='flex grid w-full gap-6'>
           <Paper className='flex rounded-3xl opacity-20 hover:opacity-40'  style={{backgroundColor: currentColor, }}>
-            <button
-                type="button"
-                
-                className="text-xl rounded-full  p-3 hover:bg-light-gray block" 
-                
-              >
-              Need Help?
-            </button>
+            <p className='font-bold'>Need Help?</p>
           </Paper>
 
-          <Paper className='w-full rounded-3xl opacity-50'  style={{backgroundColor: currentColor, }}>
-            <button
-                type="button"
-                
-                className="text-xl rounded-full  p-3 hover:bg-light-gray block " 
-                
-              >
-              Need Help?
-            </button>
-          </Paper>
+          
+
+          <Card className='h-1/2' style={{backgroundColor: '#514f4f'}}>
+            <CardActionArea component={RouterLink} to={'/chatbot'}>
+              <CardContent className='flex grid'>
+                <img src={ChatBotIcon}/>
+                </CardContent>
+            </CardActionArea>
+            
+          </Card>
 
         </div>
 
