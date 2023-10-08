@@ -19,7 +19,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 function ColumnLayout() {
 
-    const { currentColor, activeMenu, setActiveMenu, screenSize } = useStateContext();
+    const { currentColor } = useStateContext();
 
     return (
         <Box sx={{ width: 1 }} className="mt-10">
@@ -67,16 +67,16 @@ function ColumnLayout() {
 
 const GetInTouch = () => (
     <>
-    <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg bg-no-repeat bg-cover bg-center rounded-3xl shadow p-3 mb-5 bg-body-tertiary rounded" >
+    <div className="m-2 md:m-10 mt-24 md:p-10 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg bg-no-repeat bg-cover bg-center rounded-3xl shadow p-3 mb-5 bg-body-tertiary rounded" >
         <p className='text-left .fs-1'> Contact Us </p>
     </div>
 
-    <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg bg-no-repeat bg-cover bg-center rounded-3xl shadow p-3 mb-5 bg-body-tertiary rounded" >
+    <div className="m-2 md:m-10 mt-24 md:p-10 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg bg-no-repeat bg-cover bg-center rounded-3xl shadow p-3 mb-5 bg-body-tertiary rounded" >
         <p className='text-center .fs-2'> How can we help?</p>
         <ColumnLayout/>
     </div>
 
-    <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg bg-no-repeat bg-cover bg-center rounded-3xl shadow p-3 mb-5 bg-body-tertiary rounded" >
+    <div className="m-2 md:m-10 mt-24 md:p-10 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg bg-no-repeat bg-cover bg-center rounded-3xl shadow p-3 mb-5 bg-body-tertiary rounded" >
         <p className='text-left .fs-2 mb-10'> FAQs </p>
         <Accordion className=' bg-white dark:text-gray-200 dark:bg-secondary-dark-bg bg-no-repeat'>
             <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
