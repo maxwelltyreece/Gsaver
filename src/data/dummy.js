@@ -22,6 +22,7 @@ import Coop from '../data/Coop.png'
 import UEats from '../data/UEats.png'
 
 
+
 export const gridOrderImage = (props) => (
   <div>
     <img
@@ -864,6 +865,23 @@ export const ordersGrid = [
     width: '120',
   }
 ];
+export const tipsGrid = [
+  {
+    field: 'company',
+    headerText: 'Company',
+    template: gridOrderImage,
+    //textAlign: 'Center',
+    width: '120',
+  },
+  {
+    field: 'tip',
+    headerText: 'Tip',
+    width: '190',
+    editType: 'dropdownedit',
+    textAlign: 'Center',
+  },
+];
+
 
 export const customersData = [
   {
@@ -1861,6 +1879,14 @@ export const employeesData = [
   },
 ];
 
+export const apis = [
+  {
+    "url": "https://europe-west2-green-crowbar-401316.cloudfunctions.net/chatfunc?name=How can i save money at",
+    "back": "answer in 2 sentences",
+  }
+]
+
+
 export const transactions = [
   {
     "id": 1,
@@ -2045,6 +2071,51 @@ export const transactions = [
 ]
 ;
 
+export const comps = ['Tesco', 'Ubereats', 'Cinema by choosing a student bank account'];
+
+
+function process2(vall) {
+    var xhr = new XMLHttpRequest();
+    var url = "https://europe-west2-green-crowbar-401316.cloudfunctions.net/chatfunc?name=How can i save money on " + vall + " answer in 2 sentences";
+    xhr.open("GET", url, true);
+    xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      console.log(xhr.responseText);
+      return xhr.responseText;
+      // Process the response data here
+    }
+    else {
+      return "Get a clubcard";
+    }}
+    
+    
+    xhr.send();
+    }
+
+export const tips = [{
+  "company": "Tesco",
+  "imlink": Tesco,
+  "tip": process2("Tesco")
+}];
+
+function process() {
+  for (let i = 0; i < comps.length; i++) {
+    var xhr = new XMLHttpRequest();
+    var url = "https://europe-west2-green-crowbar-401316.cloudfunctions.net/chatfunc?name=How can i save money on " + comps[i] + " answer in 2 sentences";
+    xhr.open("GET", url, true);
+    xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      tips.push(
+        {"company": comps[i],
+        "imlink": Tesco,
+        "tip": xhr.responseText});
+      // Process the response data here
+    }}
+    xhr.send();
+    }
+}
+
+process();
 
 export const scheduleData = [
   {
