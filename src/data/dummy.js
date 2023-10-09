@@ -35,6 +35,12 @@ export const gridOrderImage = (props) => (
     />
   </div>
 );
+export const rentReport = (props) => (
+  <button 
+  type="button"
+  style={{ background: '#4285F4' }}
+  >Report Rent</button>
+);
 
 export const gridOrderStatus = (props) => (
   <button
@@ -869,7 +875,15 @@ export const ordersGrid = [
     field: 'description',
     textAlign: 'Center',
     width: '120',
-  }
+  },
+  {
+    headerText: 'Rent Reporting',
+    template: rentReport,
+    field: 'description',
+    //textAlign: 'Center',
+    width: '120',
+  },
+
 ];
 export const tipsGrid = [
   {
