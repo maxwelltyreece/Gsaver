@@ -1,7 +1,7 @@
 import React from "react"
 
 import { Button } from "@mui/material"
-import backgroundImage from "../data/backgroundTestimonials.jpg"
+import backgroundImage from "../data/backgroundFeatures.jpg"
 
 export function Testimonials() {
 	const styles = {
